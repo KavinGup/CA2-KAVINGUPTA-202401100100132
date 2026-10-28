@@ -31,5 +31,12 @@ jobs:
     - name: Test Docker Container Startup
       run: |
         docker run -d -p 8000:8000 --name test-container ml-fastapi-app:latest
-        sleep 5
+        
+        # Container start hone ke liye 8 seconds ka wait karein
+        sleep 8
+        
+        # Agar container crash hua ho toh logs print karayein
+        docker logs test-container
+        
+        # Health check hit karein
         curl --fail http://localhost:8000/ || exit 1
