@@ -15,10 +15,9 @@ except Exception as e:
   model = None
 
 
-# Input data validation ke liye
 class TitanicInput(BaseModel):
   Pclass: int
-  Sex: int  # 0 for male, 1 for female
+  Sex: int  
   Age: float
   sibsp: int
   Parch: int
